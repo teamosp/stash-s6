@@ -21,7 +21,7 @@ source "/opt/log.sh"
 
 # 🎭 run as CURUSR if possible
 runas() {
-  if [[ $ROOTLESS -eq 1 ]] || [[ $(id -u) -eq 1 ]]; then
+   if [[ $ROOTLESS -eq 1 ]] || [[ $(id -u) -eq 0 ]]; then
     "$@"
   else
     # shellcheck disable=SC2068
